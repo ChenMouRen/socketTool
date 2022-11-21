@@ -10,11 +10,14 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toPainter
+import androidx.compose.ui.res.useResource
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
+import javax.imageio.ImageIO
 
 @Composable
 @Preview
@@ -70,7 +73,7 @@ fun App() {
                     }
 
                     Button(
-                        onClick = {addressInfo = "127.0.0.1:8000"},
+                        onClick = { addressInfo = "127.0.0.1:8000" },
                         modifier = Modifier.padding(
                             top = 30.dp,
                             start = 10.dp
@@ -151,13 +154,16 @@ fun App() {
 
 fun main() = application {
 
+//    val resource = Any::class.java.getResource()
     Window(
         onCloseRequest = ::exitApplication,
         resizable = true,
-        state = WindowState(size = DpSize(800.dp, 500.dp))
+        state = WindowState(size = DpSize(800.dp, 500.dp)),
+        icon = useResource("icon.png") { fis ->
+            ImageIO.read(fis).toPainter()
+        }
     ) {
         this.window.title = "SocketTool"
-//        this.window.iconImage = ImageIO.read()
         App()
     }
 }

@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies{
-    commonMainImplementation("cn.hutool:hutool-all:5.8.10")
+//    commonMainImplementation("cn.hutool:hutool-all:5.8.10")
 }
 
 kotlin {
@@ -41,7 +41,6 @@ compose.desktop {
     application {
         mainClass = "MainKt"
         nativeDistributions {
-            includeAllModules = true
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "socketTool"
             packageVersion = "1.0.0"
