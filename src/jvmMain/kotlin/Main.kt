@@ -43,7 +43,7 @@ fun App() {
                             addressInfo = "127.0.0.1:8000"
                         },
                         modifier = Modifier.padding(
-                            top = 30.dp,
+                            top = 20.dp,
                             start = 10.dp
                         ).sizeIn(maxHeight = 120.dp, maxWidth = 120.dp)
                     ) {
@@ -55,7 +55,7 @@ fun App() {
                             addressInfo = "127.0.0.1:8000"
                         },
                         modifier = Modifier.padding(
-                            top = 30.dp,
+                            top = 20.dp,
                             start = 10.dp
                         ).sizeIn(maxHeight = 120.dp, maxWidth = 120.dp)
                     ) {
@@ -65,7 +65,7 @@ fun App() {
                     Button(
                         onClick = { addressInfo = "127.0.0.1:8000" },
                         modifier = Modifier.padding(
-                            top = 30.dp,
+                            top = 20.dp,
                             start = 10.dp
                         ).sizeIn(maxHeight = 120.dp, maxWidth = 120.dp)
                     ) {
@@ -75,40 +75,68 @@ fun App() {
                     Button(
                         onClick = { addressInfo = "127.0.0.1:8000" },
                         modifier = Modifier.padding(
-                            top = 30.dp,
+                            top = 20.dp,
                             start = 10.dp
                         ).sizeIn(maxHeight = 120.dp, maxWidth = 120.dp)
                     ) {
                         Text(text = "UDP客户端")
                     }
+
+                    Button(
+                        onClick = { addressInfo = "ws://127.0.0.1:8000" },
+                        modifier = Modifier.padding(
+                            top = 20.dp,
+                            start = 10.dp
+                        ).sizeIn(maxHeight = 120.dp, maxWidth = 120.dp)
+                    ) {
+                        Text(text = "WebSocket服务端")
+                    }
+
+                    Button(
+                        onClick = { addressInfo = "ws127.0.0.1:8000" },
+                        modifier = Modifier.padding(
+                            top = 20.dp,
+                            start = 10.dp
+                        ).sizeIn(maxHeight = 120.dp, maxWidth = 120.dp)
+                    ) {
+                        Text(text = "WebSocket客户端")
+                    }
                 }
 
-                // 输入框
-                Row(
-                    modifier = Modifier.width(650.dp)
-                        .height(250.dp)
+                // 地址、连接、消息、输入
+                Column(
+                    horizontalAlignment = Alignment.End,
+                    modifier = Modifier.fillMaxHeight().width(650.dp)
                         .background(Color.White)
                         .padding(start = 10.dp)
                 ) {
-                    TextField(
-                        value = addressInfo,
-                        onValueChange = {
-                            addressInfo = it
-                        },
-                        modifier = Modifier.width(400.dp)
-                            .height(70.dp)
-                            .padding(start = 10.dp, top = 10.dp),
-                        colors = TextFieldDefaults.textFieldColors(
-                            cursorColor = Color.Gray,
-                            backgroundColor = Color(247, 242, 243, 100),
-                            unfocusedIndicatorColor = Color.Transparent,
-                            focusedIndicatorColor = Color.Transparent,
-                        ),
+                    // 输入框
+                    Row(
+                        modifier = Modifier.width(650.dp)
+                            .height(250.dp)
+                            .background(Color.White)
+                            .padding(start = 10.dp)
+                    ) {
+                        TextField(
+                            value = addressInfo,
+                            onValueChange = {
+                                addressInfo = it
+                            },
+                            modifier = Modifier.width(400.dp)
+                                .height(70.dp)
+                                .padding(start = 10.dp, top = 10.dp),
+                            colors = TextFieldDefaults.textFieldColors(
+                                cursorColor = Color.Gray,
+                                backgroundColor = Color(247, 242, 243, 100),
+                                unfocusedIndicatorColor = Color.Transparent,
+                                focusedIndicatorColor = Color.Transparent,
+                            ),
 
-                        )
+                            )
+                    }
                 }
+                // 消息框
             }
-            // 消息框
         }
 
 
